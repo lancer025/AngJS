@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app ='testModule'>										//JS app name
+<head>
+<title>Angular JS</title>
+<script type="text/javascript"
+    src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+</head>
+<body>
+<div ng-controller="randomNos">									//Name of the controller being used
+     Name:<input type="text" ng-model="Name"/>					//"Name" -> Binds the text area with the ANgJS object and replaces the 																	  expression with the value
+    <button ng-click="randNos()">Add</button>
+    	<p>{{Name + " " + num}}</p>								// AngJS expression
+ 
+    </div>
+<script type="text/javascript">									//Javascript
+    var myApp = angular.module('testModule', []);
+
+    myApp.controller('randomNos', function($scope) {
+            
+            $scope.randNos = function() {
+                $scope.num = Math.floor(Math.random() * 7) + 9; //Return a random no between 9 (inclusive) and 16 (exclusive)
+            };
+        });
+</script>
+</body>
+</html>
